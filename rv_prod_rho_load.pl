@@ -114,7 +114,6 @@ my $db = DBI->connect(   $dsn,
 	use warnings;
     
     #Prepare insert query into RHO database
-    #my $ins = $db2->prepare("INSERT INTO [RHO].[dbo].[$sql_table] (SUBGROUP, ENTITY, DEBT_SEC, APPROACH, BAL, EAD, WA_PD, WA_LGD, RWA, ECL) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
     my $ins = $db2->prepare("INSERT INTO [RHO].[dbo].[$sql_table] (" . join(", ", values @ { $array_load }) . ") VALUES(" . join(", ", values @ { $array_qmark }) . ")");
 
 	no warnings;
